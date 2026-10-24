@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mariane A. Vertudes | IT Portfolio</title>
+<meta name="description" content="Portfolio of Mariane A. Vertudes: IT documentation, data analysis, and project coordination. Open for internship.">
+<script>if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){document.documentElement.classList.add('js')}</script>
+<style>
+:root{
+  --paper:#08080b; --ink:#f1eef5; --muted:#a4a1af; --accent:#9b111e; --accent-hi:#c4182a; --link:#54d8eb; --line:#2b2a35; --card:#111116; --deep:#050507;
+  --sans:"Trebuchet MS","Segoe UI",system-ui,sans-serif; --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+html:has(dialog[open]),html.menu-open{overflow:hidden}
+body{margin:0;background:radial-gradient(60rem 30rem at 85% -5%,rgba(139,0,0,.5),transparent 70%),radial-gradient(40rem 25rem at -10% 60%,rgba(139,0,0,.28),transparent 70%),var(--paper);background-attachment:fixed;color:var(--ink);font:1rem/1.65 var(--serif)}
+h1,h2,h3,h4,nav,button,.tag,.label{font-family:var(--sans)}
+a{color:var(--link)}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--link);outline-offset:3px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ic{width:1.25rem;height:1.25rem;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:66rem;margin:0 auto;padding:0 1.25rem}
+
+/* header */
+.skip{position:absolute;left:1rem;top:-4rem;background:var(--accent);color:#fff;padding:.6rem 1rem;z-index:20;border-radius:4px;font:700 1rem var(--sans);text-decoration:none}
+.skip:focus{top:.75rem}
+header{position:sticky;top:0;z-index:5;background:rgba(8,8,11,.94);backdrop-filter:blur(6px);border-bottom:2px solid var(--accent)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:3.5rem}
+.brand{font:700 1.05rem var(--sans);color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
+nav a{display:inline-block;color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;padding:.35rem 0;border-bottom:3px solid transparent;transition:border-color .18s}
+nav a:hover{border-color:var(--accent)}
+nav a.active{border-bottom-color:var(--accent)}
+#menu-btn{display:none;place-items:center;width:2.75rem;height:2.75rem;padding:0;background:rgba(255,255,255,.03);border:1px solid #3a3a46;color:var(--ink);border-radius:10px;cursor:pointer;transition:border-color .18s,background-color .18s}
+#menu-btn:hover{border-color:var(--link);background:rgba(84,216,235,.08)}
+#menu-btn .ic{width:1.35rem;height:1.35rem}
+.drawer-head,.drawer-foot,.only-mobile,.scrim{display:none}
+
+/* shared */
+section{padding:4.5rem 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(1.6rem,3vw,2rem);margin:0 0 1.25rem;line-height:1.2}
+.eyebrow{font:700 .8rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--link);margin:0 0 .6rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:2.75rem;padding:.5rem 1.15rem;background:var(--accent);color:#fff;text-decoration:none;font:700 .95rem var(--sans);border-radius:6px;border:2px solid var(--accent);cursor:pointer;transition:transform .18s,box-shadow .18s,background-color .18s,border-color .18s,color .18s}
+.btn.alt{background:transparent;color:var(--link)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(155,17,30,.5);background:var(--accent-hi);border-color:var(--accent-hi);color:#fff}
+.btn:active{transform:none;box-shadow:none}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
+.tag{display:inline-block;font-size:.78rem;border:1px solid #4a4956;border-radius:99px;padding:.1rem .65rem;color:var(--ink)}
+
+/* home */
+#home{min-height:calc(100svh - 3.5rem);display:flex;align-items:center;padding:3rem 0;background-color:var(--paper);background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:4rem 4rem;background-position:center top}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3.5rem;align-items:center;width:100%}
+.hero-text{max-width:38rem}
+#home h1{font:700 clamp(2.2rem,5vw,3.6rem)/1.05 var(--serif);letter-spacing:-.035em;margin:0 0 1rem}
+.focus{font:italic 700 clamp(1.05rem,2vw,1.35rem)/1.4 var(--serif);color:#e5e1eb;margin:0 0 1rem}
+.lead{font:400 clamp(.95rem,1.4vw,1.05rem)/1.7 var(--sans);color:var(--muted);margin:0;max-width:36rem}
+.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+.portrait-col{display:flex;flex-direction:column;align-items:center}
+.portrait-col .open{margin:1.75rem 0 0}
+.portrait{display:block;width:clamp(14rem,31vw,22rem);height:auto;aspect-ratio:1;object-fit:cover;object-position:center 20%;border:2px solid var(--ink);border-radius:14px;background:var(--line);box-shadow:10px 10px 0 var(--accent)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:3rem;align-items:start}
+.about p{margin:0 0 1rem;max-width:none}
+.highlights{display:grid;gap:1rem}
+.highlight-card{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:1.1rem 1.25rem;transition:transform .18s,border-color .18s,box-shadow .18s}
+.highlight-card:hover{transform:translateX(4px);border-left-color:var(--link);box-shadow:0 10px 24px rgba(0,0,0,.45)}
+.hl-icon{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:50%;background:rgba(84,216,235,.1);border:1px solid rgba(84,216,235,.35);color:var(--link)}
+.skills-block{grid-column:1/-1;margin-top:1rem}
+.skills-block h3{font-size:1.4rem;margin:0 0 1.1rem}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem}
+.skill-group{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:8px;padding:1rem 1.15rem 1.2rem}
+.skill-group h4{margin:0 0 .8rem;font:700 .78rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--link)}
+.skill-group{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background-color .22s ease}
+.skill-group h4{transition:color .22s ease,letter-spacing .22s ease}
+.skill-group .tag{font-size:.85rem;padding:.2rem .8rem;cursor:default;transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.skill-group:hover{transform:translateY(-4px);border-top-color:var(--link);background:#15151c;box-shadow:0 14px 30px rgba(0,0,0,.5)}
+.skill-group:hover h4{color:#fff;letter-spacing:.18em}
+.skill-group .tag:hover{background:var(--link);border-color:var(--link);color:#06181c;font-weight:700;transform:translateY(-3px) scale(1.06);box-shadow:0 6px 16px rgba(84,216,235,.45)}
+.highlight-card h3{font-size:1.05rem;margin:.1rem 0 .3rem}
+.highlight-card p{margin:0;color:var(--muted);font-size:.95rem}
+
+/* projects */
+.stats{display:flex;flex-wrap:wrap;gap:.5rem 2rem;margin:0 0 1.75rem}
+.stats div{display:flex;align-items:baseline;gap:.5rem}
+.stats strong{font:700 1.9rem/1 var(--sans);color:var(--link)}
+.stats span{color:var(--muted);font:.95rem var(--sans)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(17.5rem,1fr));grid-auto-rows:1fr;gap:1.25rem}
+.project{display:flex;flex-direction:column;height:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
+.project:hover{transform:translateY(-5px);border-color:var(--link);box-shadow:0 14px 30px rgba(155,17,30,.4)}
+.shot{position:relative;display:block;width:100%;aspect-ratio:16/10;padding:0;border:0;background:var(--deep);cursor:pointer;overflow:hidden;border-radius:0}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .4s}
+.shot.fit img{object-fit:contain;object-position:center}
+.shot.light{background:#f5f4f1}
+.project:hover .shot img{transform:scale(1.04)}
+.shot.fit:hover img,.project:hover .shot.fit img{transform:none}
+.hint{position:absolute;right:.6rem;bottom:.6rem;display:inline-flex;align-items:center;gap:.35rem;background:rgba(8,8,11,.88);border:1px solid var(--link);color:var(--link);font:700 .75rem var(--sans);padding:.25rem .65rem;border-radius:99px}
+.hint .ic{width:.85rem;height:.85rem}
+.pbody{display:flex;flex-direction:column;gap:.55rem;padding:1rem 1.15rem 1.15rem;flex:1}
+.role{margin:0;color:var(--muted);font:700 .72rem var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.pbody h3{margin:0;font-size:1.15rem;line-height:1.25}
+.summary{margin:0;color:var(--muted);font-size:.95rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.pfoot{margin-top:auto;display:flex;flex-direction:column;gap:.6rem;padding-top:.4rem}
+.more{align-self:flex-start;display:inline-flex;align-items:center;gap:.4rem;min-height:2.75rem;padding:.2rem .1rem;background:none;border:0;color:var(--link);font:700 .95rem var(--sans);cursor:pointer}
+.more:hover{text-decoration:underline;text-underline-offset:4px}
+.more .ic{width:1rem;height:1rem;transition:transform .18s}
+.more:hover .ic{transform:translateX(4px)}
+.project.soon{background:transparent;border:2px dashed #4a4956;justify-content:center;align-items:center;text-align:center;padding:2rem 1.5rem;gap:.7rem}
+.project.soon:hover{transform:none;box-shadow:none;border-color:#4a4956}
+.soon-icon{display:grid;place-items:center;width:3.25rem;height:3.25rem;border-radius:50%;border:2px dashed var(--link);color:var(--link)}
+.project.soon h3{margin:0;font-size:1.15rem}
+.project.soon p{margin:0;color:var(--muted);font-size:.95rem;max-width:15rem}
+
+/* project popup */
+dialog{padding:0;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);width:min(92vw,46rem);max-height:90vh;max-height:90svh;overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.75)}
+dialog::backdrop{background:rgba(3,3,6,.8);backdrop-filter:blur(3px)}
+dialog[open]{animation:pop .22s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.d-bar{position:sticky;top:0;height:0;z-index:3;text-align:right}
+.d-close{display:inline-grid;place-items:center;width:2.75rem;height:2.75rem;margin:.7rem;padding:0;border-radius:50%;background:rgba(8,8,11,.9);border:2px solid var(--ink);color:var(--ink);cursor:pointer;transition:background-color .18s,border-color .18s}
+.d-close:hover{background:var(--accent);border-color:var(--accent)}
+.d-media{background:var(--deep);height:clamp(11rem,38vh,18rem);overflow:hidden}
+.d-media img{display:block;width:100%;height:100%;object-fit:contain}
+.d-body{padding:1.5rem 1.6rem 1.8rem}
+.d-body h3{font-size:1.5rem;margin:.2rem 0 .8rem;line-height:1.2}
+.d-body h4{margin:1.25rem 0 .3rem;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--link)}
+.d-body p{margin:0 0 .6rem}
+.d-body .tags{margin:1.1rem 0 0}
+.d-links{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
+
+/* resume popup + print */
+dialog.rdialog{width:min(94vw,44rem);overflow:hidden}
+dialog.rdialog[open]{display:flex;flex-direction:column}
+.r-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem .8rem .7rem 1.4rem;border-bottom:1px solid var(--line)}
+.r-head h3{margin:0;font-size:1.1rem}
+.r-head .d-close{margin:0}
+.r-view{flex:1;min-height:0;overflow:auto;background:#1c1c24;padding:1.25rem}
+.r-view img{display:block;width:100%;max-width:38rem;height:auto;margin:0 auto;background:#fff;border-radius:3px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+.r-actions{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:flex-end;padding:.9rem 1.2rem;border-top:1px solid var(--line);background:var(--card)}
+#print-sheet{display:none}
+@media print{
+  @page{margin:0}
+  body>*:not(#print-sheet){display:none!important}
+  body{background:#fff!important}
+  #print-sheet{display:block}
+  #print-sheet img{display:block;width:100%;max-height:100vh;object-fit:contain}
+}
+
+/* contact */
+#contact{text-align:center;padding:4.5rem 0 5rem}
+#contact h2{margin-bottom:.6rem}
+.open{display:inline-flex;align-items:center;gap:.6rem;border:2px solid var(--accent);border-radius:99px;padding:.3rem 1rem;margin:0 0 1rem;background:rgba(155,17,30,.25);color:#fff;font:700 .85rem var(--sans);letter-spacing:.04em}
+.open i{width:.6rem;height:.6rem;border-radius:50%;background:#3ddc84;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(61,220,132,.65)}70%{box-shadow:0 0 0 .6rem rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+.contact-card{max-width:40rem;margin:0 auto;padding:3rem 2rem 3.25rem;border:1px solid var(--line);border-radius:18px;background:radial-gradient(circle at 50% 0%,rgba(155,17,30,.38),transparent 68%),var(--card);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.contact-note{margin:0 auto;max-width:28rem;color:var(--muted);font:1.05rem/1.6 var(--sans)}
+.social{display:flex;flex-wrap:wrap;justify-content:center;gap:1.75rem;list-style:none;margin:2.25rem 0 0;padding:0}
+button.icon-link{background:none;border:0;padding:0;cursor:pointer}
+.icon-link{display:grid;justify-items:center;gap:.55rem;min-width:4.5rem;color:var(--muted);text-decoration:none;font:700 .85rem var(--sans);transition:color .18s}
+.ring{display:grid;place-items:center;width:3.75rem;height:3.75rem;border-radius:50%;border:2px solid var(--accent);color:var(--link);transition:transform .18s,background-color .18s,color .18s,box-shadow .18s}
+.ring .ic{width:1.5rem;height:1.5rem}
+.icon-link.primary .ring{background:var(--accent);color:#fff}
+.icon-link:hover{color:var(--ink)}
+.icon-link:hover .ring,.icon-link:focus-visible .ring{transform:translateY(-4px);background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(155,17,30,.5)}
+
+footer{padding:1.75rem 0 calc(1.75rem + env(safe-area-inset-bottom,0px));color:var(--ink);font:500 .95rem var(--sans);letter-spacing:.02em}
+footer .wrap{display:flex;flex-direction:column;align-items:center;gap:.4rem;text-align:center}
+.totop{color:var(--link);white-space:nowrap;display:inline-block;padding:.35rem .5rem}
+
+/* scroll reveal */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+
+@media (max-width:50rem){
+  .hero{grid-template-columns:1fr;gap:1.75rem}
+  .portrait-col{order:-1;align-items:flex-start}
+  .portrait-col .open{margin-top:1.4rem}
+  .portrait{width:min(14rem,72%);box-shadow:7px 7px 0 var(--accent)}
+  .about{grid-template-columns:1fr;gap:2rem}
+}
+@media (max-width:42rem){
+  header{backdrop-filter:none;background:var(--paper)}
+  #menu-btn{display:grid}
+  .scrim{display:block;position:fixed;inset:0;z-index:1;background:rgba(3,3,6,.72);opacity:0;pointer-events:none;transition:opacity .25s}
+  .scrim.is-open{opacity:1;pointer-events:auto}
+  nav{position:fixed;top:0;right:0;bottom:0;z-index:2;width:min(20rem,86vw);display:flex;flex-direction:column;padding:1rem 1.1rem 1.4rem;background:var(--paper);border-left:1px solid var(--line);box-shadow:-20px 0 50px rgba(0,0,0,.6);overflow-y:auto;transform:translateX(105%);visibility:hidden;transition:transform .28s ease,visibility 0s .28s}
+  nav.is-open{transform:none;visibility:visible;transition:transform .28s ease,visibility 0s}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+  .drawer-title{font:700 .75rem ui-monospace,Menlo,Consolas,monospace;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .drawer-head .d-close{width:2.75rem;height:2.75rem;margin:0;border:1px solid #3a3a46;background:transparent}
+  nav ul{flex-direction:column;gap:.4rem;margin-top:1.1rem}
+  nav li a{display:block;padding:.85rem 1rem;border:1px solid transparent;border-radius:10px;color:var(--muted);font-size:1.05rem}
+  nav li a:hover{color:var(--ink);background:rgba(255,255,255,.04)}
+  nav li a.active{color:var(--link);font-weight:700;background:rgba(84,216,235,.1);border-color:rgba(84,216,235,.5)}
+  .only-mobile{display:list-item}
+  .drawer-foot{display:flex;flex-direction:column;align-items:stretch;gap:1.1rem;margin-top:auto;padding-top:1.25rem;border-top:1px solid var(--line)}
+  .drawer-foot .btn{width:100%}
+  .drawer-social{display:flex;justify-content:center;gap:.9rem}
+  .drawer-social a{display:grid;place-items:center;width:2.9rem;height:2.9rem;border-radius:50%;border:1px solid #3a3a46;color:var(--muted);transition:color .18s,border-color .18s,background-color .18s}
+  .drawer-social a:hover{color:var(--link);border-color:var(--link);background:rgba(84,216,235,.08)}
+  section{padding:3.25rem 0}
+  #home{padding:2rem 0}
+  .d-body{padding:1.25rem 1.2rem 1.5rem}
+  .contact-card{padding:2.25rem 1rem 2.5rem}
+  .social{gap:.9rem}
+  .icon-link{min-width:4.1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  nav,nav.is-open{transition:none}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .btn:hover,.project:hover,.highlight-card:hover,.skill-group:hover,.skill-group .tag:hover,.icon-link:hover .ring{transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- icon set (Feather icons, MIT licence) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-printer" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#home">Mariane A. Vertudes</a>
+    <button type="button" id="menu-btn" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    <div class="scrim" id="scrim"></div>
+    <nav aria-label="Main" id="menu-panel">
+      <div class="drawer-head">
+        <span class="drawer-title">Menu</span>
+        <button type="button" id="menu-close" class="d-close" aria-label="Close menu"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li class="only-mobile"><a href="assets/resume.pdf" data-resume aria-haspopup="dialog">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="drawer-foot">
+        <a class="btn" href="#contact">Get in touch <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <div class="drawer-social">
+          <a href="https://github.com/vmariane" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg></a>
+          <a href="https://www.linkedin.com/in/mariane-vertudes-77b1411a4/" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="home">
+  <div class="wrap hero">
+    <div class="hero-text">
+      <p class="eyebrow">IT documentation &middot; Data &amp; systems</p>
+      <h1>Mariane A. Vertudes</h1>
+      <p class="focus">I make information clear, organized, and useful.</p>
+      <p class="lead">I&rsquo;m an Information Technology student at Cebu Eastern College with an interest in data analysis, data management, and system documentation. I enjoy organizing information, documenting how systems work, and helping teams turn project ideas into practical solutions.</p>
+      <div class="actions">
+        <a class="btn" href="#projects">See my projects</a>
+        <a class="btn alt" href="assets/resume.pdf" data-resume aria-haspopup="dialog"><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg>View resume</a>
+        <a class="btn alt" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="portrait-col">
+      <img class="portrait" src="images/profile.jpg" alt="Portrait of Mariane A. Vertudes" width="800" height="800">
+      <p class="open"><i aria-hidden="true"></i>Open for internship</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>About me</h2>
+      <p>I&rsquo;m an Information Technology student who enjoys organizing information, documenting system processes, and helping projects stay on track. In team projects, I often take responsibility for coordinating tasks and preparing documentation that makes a system easier to understand.</p>
+      <p>I&rsquo;m especially interested in roles involving data analysis, data management, and IT documentation. I&rsquo;m continuing to build my technical skills while focusing on accuracy, clear communication, and practical solutions.</p>
+    </div>
+    <div class="highlights">
+      <article class="highlight-card"><span class="hl-icon"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><div><h3>Organized thinking</h3><p>I enjoy structuring information and keeping project details clear and consistent.</p></div></article>
+      <article class="highlight-card"><span class="hl-icon"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg></span><div><h3>System documentation</h3><p>I turn project workflows and system features into documentation people can follow.</p></div></article>
+      <article class="highlight-card"><span class="hl-icon"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span><div><h3>Team collaboration</h3><p>I help coordinate tasks, track progress, and keep group work moving forward.</p></div></article>
+    </div>
+    <div class="skills-block">
+      <h3>Skills</h3>
+      <div class="skill-grid">
+        <div class="skill-group"><h4>Documentation &amp; coordination</h4><ul class="tags"><li class="tag">IT documentation</li><li class="tag">Project management</li><li class="tag">Project coordination</li><li class="tag">Organizing information</li></ul></div>
+        <div class="skill-group"><h4>Design</h4><ul class="tags"><li class="tag">Figma</li><li class="tag">Wireframing</li><li class="tag">Prototyping</li><li class="tag">User-centered design</li></ul></div>
+        <div class="skill-group"><h4>Web</h4><ul class="tags"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li><li class="tag">Web design</li><li class="tag">Page layout</li><li class="tag">UI testing</li></ul></div>
+        <div class="skill-group"><h4>Data &amp; databases</h4><ul class="tags"><li class="tag">MySQL</li><li class="tag">SQLite</li><li class="tag">Database management</li></ul></div>
+        <div class="skill-group"><h4>Programming &amp; tools</h4><ul class="tags"><li class="tag">Python</li><li class="tag">Django</li><li class="tag">Git &amp; GitHub</li></ul></div>
+        <div class="skill-group"><h4>People skills</h4><ul class="tags"><li class="tag">Communication</li><li class="tag">Time management</li><li class="tag">Attention to detail</li><li class="tag">Problem-solving</li><li class="tag">Adaptability</li><li class="tag">Team collaboration</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h2>Projects</h2>
+    <div class="stats">
+      <div><strong>5</strong><span>projects</span></div>
+      <div><strong>5</strong><span>with my documentation</span></div>
+    </div>
+
+    <!--
+      HOW TO ADD A PROJECT
+      1. Copy one whole <article class="project"> ... </article> block below.
+      2. Paste it right BEFORE the "Coming soon" card.
+      3. Change the image path, title, summary, and everything inside <template class="details">.
+      4. Save your screenshot in the images/ folder (for example images/project4.png).
+    -->
+    <div class="grid">
+
+      <article class="project">
+        <button type="button" class="shot fit light" data-open aria-haspopup="dialog" aria-label="View details for Gamio">
+          <img src="images/project4.png" alt="" width="900" height="515" loading="lazy">
+          <span class="hint"><svg class="ic" aria-hidden="true"><use href="#i-expand"/></svg>Details</span>
+        </button>
+        <div class="pbody">
+          <p class="role">Capstone project &middot; Learning system</p>
+          <h3>Gamio</h3>
+          <p class="summary">An AI-powered, game-based learning system where teachers build quizzes in seconds and young students learn through points, badges, and friendly competition.</p>
+          <div class="pfoot">
+            <ul class="tags"><li class="tag">Capstone</li><li class="tag">Project Management</li><li class="tag">Documentation</li></ul>
+            <button type="button" class="more" data-open aria-haspopup="dialog">View details <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+        <template class="details">
+          <div class="d-media"><img src="images/project4.png" alt="Gamio home page with the headline Turn any lesson into a game students love, a Teacher login button, and a class leaderboard"></div>
+          <div class="d-body">
+            <p class="role">Capstone project &middot; Learning system</p>
+            <h3>Gamio</h3>
+            <p>Gamio is our capstone system: an AI-powered, game-based learning system. It helps teachers build quizzes in seconds with AI, and helps preschool and elementary students learn through points, badges, and friendly competition. It also features color recognition for classroom assessments and student performance tracking.</p>
+            <h4>My contribution</h4>
+            <p>I was the project manager of our capstone team. I organized and coordinated the work, kept the project on track, and wrote the project documentation.</p>
+            <ul class="tags"><li class="tag">Capstone</li><li class="tag">Project Management</li><li class="tag">Documentation</li></ul>
+            <div class="d-links">
+              <a class="btn" href="https://github.com/JhonAusten/gamio_build" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>View on GitHub<span class="sr"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </template>
+      </article>
+
+      <article class="project">
+        <button type="button" class="shot" data-open aria-haspopup="dialog" aria-label="View details for Manananggal Slayer">
+          <img src="images/project1.png" alt="" width="878" height="932" loading="lazy">
+          <span class="hint"><svg class="ic" aria-hidden="true"><use href="#i-expand"/></svg>Details</span>
+        </button>
+        <div class="pbody">
+          <p class="role">Class project &middot; Game</p>
+          <h3>Manananggal Slayer</h3>
+          <p class="summary">A Filipino horror survival game where you fight off the Manananggal with rotating machetes and power-up buffs.</p>
+          <div class="pfoot">
+            <ul class="tags"><li class="tag">Game</li><li class="tag">Documentation</li></ul>
+            <button type="button" class="more" data-open aria-haspopup="dialog">View details <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+        <template class="details">
+          <div class="d-media"><img src="images/project1.png" alt="Title screen of the Manananggal game showing the how-to-play instructions, Start Game and Leaderboard buttons"></div>
+          <div class="d-body">
+            <p class="role">Class project &middot; Game</p>
+            <h3>Manananggal Slayer</h3>
+            <p>A Filipino horror survival game where the player defends against the Manananggal using rotating machetes and collects buffs to stay alive. It has a how-to-play screen, a pause menu, and a leaderboard.</p>
+            <h4>My contribution</h4>
+            <p>I handled the project documentation. I wrote down what the game is and how it works, so the team&rsquo;s work was clearly recorded and easy for others to understand.</p>
+            <ul class="tags"><li class="tag">Game</li><li class="tag">Documentation</li></ul>
+            <div class="d-links">
+              <a class="btn" href="https://jhonausten.github.io/manananggal/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Play game<span class="sr"> (opens in a new tab)</span></a>
+              <a class="btn alt" href="https://github.com/JhonAusten/manananggal" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>View on GitHub<span class="sr"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </template>
+      </article>
+
+      <article class="project">
+        <button type="button" class="shot fit" data-open aria-haspopup="dialog" aria-label="View details for Barangay Poblacion Livelihood">
+          <img src="images/project2.png" alt="" width="437" height="837" loading="lazy">
+          <span class="hint"><svg class="ic" aria-hidden="true"><use href="#i-expand"/></svg>Details</span>
+        </button>
+        <div class="pbody">
+          <p class="role">Class project &middot; Mobile UI design</p>
+          <h3>Barangay Poblacion Livelihood</h3>
+          <p class="summary">A mobile app design that helps residents of Barangay Poblacion discover livelihood offers and opportunities.</p>
+          <div class="pfoot">
+            <ul class="tags"><li class="tag">Figma</li><li class="tag">UI Design</li><li class="tag">Documentation</li></ul>
+            <button type="button" class="more" data-open aria-haspopup="dialog">View details <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+        <template class="details">
+          <div class="d-media"><img src="images/project2.png" alt="Mobile design for Barangay Poblacion Livelihood with the headline Explore Exciting Livelihood Offers"></div>
+          <div class="d-body">
+            <p class="role">Class project &middot; Mobile UI design</p>
+            <h3>Barangay Poblacion Livelihood</h3>
+            <p>A mobile app design for the Barangay Poblacion livelihood system, which supports managing and monitoring livelihood-related information and activities and helps residents discover livelihood offers. It is presented as an interactive prototype in Figma.</p>
+            <h4>My contribution</h4>
+            <p>I took part in designing the app&rsquo;s screens in Figma, and I also wrote the documentation that explains the system and its features.</p>
+            <ul class="tags"><li class="tag">Figma</li><li class="tag">UI Design</li><li class="tag">Documentation</li></ul>
+            <div class="d-links">
+              <a class="btn" href="https://www.figma.com/proto/OAbcZdHqqJlUPNticv2kjY/Mobile-UI-Design?node-id=1-9&amp;starting-point-node-id=1%3A9" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-external"/></svg>View Figma prototype<span class="sr"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </template>
+      </article>
+
+      <article class="project">
+        <button type="button" class="shot" data-open aria-haspopup="dialog" aria-label="View details for FuelOps">
+          <img src="images/project3.png" alt="" width="1365" height="631" loading="lazy">
+          <span class="hint"><svg class="ic" aria-hidden="true"><use href="#i-expand"/></svg>Details</span>
+        </button>
+        <div class="pbody">
+          <p class="role">Class project &middot; Management system</p>
+          <h3>FuelOps</h3>
+          <p class="summary">A web-based fuel management system for records, sales, stock, payroll, and reports, backed by a database.</p>
+          <div class="pfoot">
+            <ul class="tags"><li class="tag">Management System</li><li class="tag">Documentation</li></ul>
+            <button type="button" class="more" data-open aria-haspopup="dialog">View details <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+        <template class="details">
+          <div class="d-media"><img src="images/project3.png" alt="FuelOps dashboard showing revenue, expenses, net profit, fuel transactions, and a monthly sales chart"></div>
+          <div class="d-body">
+            <p class="role">Class project &middot; Management system</p>
+            <h3>FuelOps</h3>
+            <p>A web-based fuel management system for handling fuel-related records and operations, backed by a database that stores and organizes the information. The dashboard shows revenue, expenses, net profit, and fuel transactions, with sections for fuel sales, stock, payroll, reports, and user roles.</p>
+            <h4>My contribution</h4>
+            <p>I handled the project documentation. I recorded how the system works and what each part does, such as sales, stock, payroll and reports, so it is easier to understand and use.</p>
+            <ul class="tags"><li class="tag">Management System</li><li class="tag">Documentation</li></ul>
+            <div class="d-links">
+              <a class="btn" href="https://fuelops-zeta.vercel.app/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-external"/></svg>Visit site<span class="sr"> (opens in a new tab)</span></a>
+              <a class="btn alt" href="https://github.com/Jordibot-art/FUELOPS" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>View on GitHub<span class="sr"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </template>
+      </article>
+
+      <article class="project">
+        <button type="button" class="shot fit" data-open aria-haspopup="dialog" aria-label="View details for Void Book">
+          <img src="images/project5.png" alt="" width="1000" height="455" loading="lazy">
+          <span class="hint"><svg class="ic" aria-hidden="true"><use href="#i-expand"/></svg>Details</span>
+        </button>
+        <div class="pbody">
+          <p class="role">Project &middot; Web app</p>
+          <h3>Void Book</h3>
+          <p class="summary">A web novel reading site where readers browse featured, popular, and newly updated stories by genre.</p>
+          <div class="pfoot">
+            <ul class="tags"><li class="tag">Web App</li><li class="tag">Documentation</li></ul>
+            <button type="button" class="more" data-open aria-haspopup="dialog">View details <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+        <template class="details">
+          <div class="d-media"><img src="images/project5.png" alt="Void Book home page with the headline Discover your next obsession, a search bar, a Sign in button, three featured book covers, and genre filters"></div>
+          <div class="d-body">
+            <p class="role">Project &middot; Web app</p>
+            <h3>Void Book</h3>
+            <p>Void Book is a web novel reading site. It features the original light novels behind popular manhwa, manhua, and manga, with sections for featured, popular, ranked, and latest updated stories, a search bar, and genre filters such as Action, Romance, Fantasy, Horror, and Sci-Fi.</p>
+            <h4>My contribution</h4>
+            <p>I handled the project documentation and contributed ideas for the site&rsquo;s features and overall direction, helping shape what the project became.</p>
+            <ul class="tags"><li class="tag">Web App</li><li class="tag">Documentation</li></ul>
+            <div class="d-links">
+              <a class="btn" href="https://voidbook.vercel.app/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-external"/></svg>Visit site<span class="sr"> (opens in a new tab)</span></a>
+              <a class="btn alt" href="https://github.com/Jordibot-art/void-book" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>View on GitHub<span class="sr"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </template>
+      </article>
+
+      <!-- Delete this card once you have added all your projects. -->
+      <article class="project soon" aria-label="More projects coming soon">
+        <span class="soon-icon"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></span>
+        <h3>More projects coming soon</h3>
+        <p>New work will be added here.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <p class="eyebrow">Contact</p>
+      <h2>Let&rsquo;s connect</h2>
+      <p class="contact-note">Have a question or an opportunity? Say hello.</p>
+      <ul class="social">
+        <li><a class="icon-link primary" href="mailto:vertudesmariane@gmail.com?subject=Hello%20Mariane"><span class="ring"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span>Email</a></li>
+        <li><a class="icon-link" href="https://www.linkedin.com/in/mariane-vertudes-77b1411a4/" target="_blank" rel="noopener"><span class="ring"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></span>LinkedIn<span class="sr"> (opens in a new tab)</span></a></li>
+        <li><a class="icon-link" href="https://github.com/vmariane" target="_blank" rel="noopener"><span class="ring"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg></span>GitHub<span class="sr"> (opens in a new tab)</span></a></li>
+        <li><a class="icon-link" href="assets/resume.pdf" data-resume aria-haspopup="dialog"><span class="ring"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg></span>Resume</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<dialog id="project-dialog" aria-label="Project details">
+  <div class="d-bar"><button type="button" class="d-close" aria-label="Close project details"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+  <div class="d-content"></div>
+</dialog>
+
+<dialog id="resume-dialog" class="rdialog" aria-label="Resume preview">
+  <div class="r-head">
+    <h3>My resume</h3>
+    <button type="button" class="d-close" aria-label="Close resume preview"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="r-view" tabindex="0">
+    <img src="assets/resume-preview.png" width="1700" height="2200" alt="Preview of Mariane A. Vertudes' one-page resume. Use the Download PDF button for a text version.">
+  </div>
+  <div class="r-actions">
+    <a class="btn" href="assets/resume.pdf" download="Mariane_Vertudes_Resume.pdf"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Download PDF</a>
+    <button type="button" class="btn alt" id="print-resume"><svg class="ic" aria-hidden="true"><use href="#i-printer"/></svg>Print</button>
+  </div>
+</dialog>
+
+<div id="print-sheet" aria-hidden="true"><img src="assets/resume-preview.png" alt=""></div>
+
+<footer>
+  <div class="wrap"><span>&copy; <span id="year">2026</span> Mariane A. Vertudes. All rights reserved.</span><a class="totop" href="#home">Back to top &uarr;</a></div>
+</footer>
+
+<script>
+(function(){
+  /* mobile menu drawer */
+  var btn=document.getElementById('menu-btn'),nav=document.getElementById('menu-panel'),menu=document.getElementById('menu'),
+      scrim=document.getElementById('scrim'),closeBtn=document.getElementById('menu-close'),mq=window.matchMedia('(max-width:42rem)');
+  function setMenu(open,returnFocus){
+    nav.classList.toggle('is-open',open);scrim.classList.toggle('is-open',open);
+    document.documentElement.classList.toggle('menu-open',open);
+    btn.setAttribute('aria-expanded',open);
+    if(open){closeBtn.focus();}else if(returnFocus){btn.focus();}
+  }
+  btn.addEventListener('click',function(){setMenu(true);});
+  closeBtn.addEventListener('click',function(){setMenu(false,true);});
+  scrim.addEventListener('click',function(){setMenu(false,true);});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')&&mq.matches)setMenu(false,false);});
+  document.addEventListener('keydown',function(e){
+    if(!nav.classList.contains('is-open'))return;
+    if(e.key==='Escape'){setMenu(false,true);return;}
+    if(e.key==='Tab'){ /* keep focus inside the open menu */
+      var f=nav.querySelectorAll('a[href],button'),first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
+  (mq.addEventListener?mq.addEventListener.bind(mq,'change'):mq.addListener.bind(mq))(function(){if(!mq.matches)setMenu(false,false);});
+
+  /* highlight the link for the section being viewed */
+  if('IntersectionObserver' in window){
+    var navLinks=[].slice.call(menu.querySelectorAll('a[href^="#"]'));
+    var spy=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;
+        navLinks.forEach(function(l){
+          var on=l.getAttribute('href')==='#'+en.target.id;
+          l.classList.toggle('active',on);
+          if(on)l.setAttribute('aria-current','location');else l.removeAttribute('aria-current');
+        });
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    ['home','about','projects','contact'].forEach(function(id){var el=document.getElementById(id);if(el)spy.observe(el);});
+  }
+
+  /* project popup */
+  var dlg=document.getElementById('project-dialog'),content=dlg.querySelector('.d-content'),lastTrigger=null;
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var tpl=b.closest('.project').querySelector('template.details');
+      if(!tpl||typeof dlg.showModal!=='function')return;
+      content.replaceChildren(tpl.content.cloneNode(true));
+      var h=content.querySelector('h3');
+      if(h)dlg.setAttribute('aria-label',h.textContent+' project details');
+      lastTrigger=b;
+      dlg.showModal();
+      dlg.scrollTop=0;
+    });
+  });
+  dlg.querySelector('.d-close').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+  dlg.addEventListener('close',function(){if(lastTrigger)lastTrigger.focus();});
+
+  /* resume preview */
+  var rd=document.getElementById('resume-dialog'),rTrigger=null;
+  document.querySelectorAll('[data-resume]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(typeof rd.showModal!=='function')return; /* old browser: link opens the PDF */
+      e.preventDefault();
+      rTrigger=a.closest('nav')?btn:a;
+      rd.showModal();
+      rd.querySelector('.r-view').scrollTop=0;
+    });
+  });
+  rd.querySelector('.d-close').addEventListener('click',function(){rd.close();});
+  rd.addEventListener('click',function(e){if(e.target===rd)rd.close();});
+  rd.addEventListener('close',function(){if(rTrigger)rTrigger.focus();});
+  document.getElementById('print-resume').addEventListener('click',function(){window.print();});
+
+  /* scroll reveal */
+  if(document.documentElement.classList.contains('js')){
+    var targets=document.querySelectorAll('#home .hero-text > *, #home .portrait-col, section h2, .eyebrow, .stats div, .about > div > p, .highlight-card, .skill-group, .project, .contact-note, .open, .icon-link');
+    var count=new Map();
+    targets.forEach(function(el){
+      var par=el.parentNode,i=count.get(par)||0;count.set(par,i+1);
+      el.style.setProperty('--d',Math.min(i,5)*0.1+'s');
+      el.classList.add('reveal');
+    });
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting)return;
+        var el=e.target;io.unobserve(el);el.classList.add('in');
+        setTimeout(function(){el.classList.remove('reveal','in');el.style.removeProperty('--d');},1500);
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    targets.forEach(function(el){io.observe(el);});
+  }
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
